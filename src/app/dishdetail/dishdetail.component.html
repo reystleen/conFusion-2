@@ -27,12 +27,13 @@
 
   <div fxFlex="40">
     <!--p>Display the list of comments here</p-->
+    <h2>Comments</h2>
     <md-list *ngIf="dish">
       <md-list-item *ngFor="let comment of dish.comments">
-        <h1 md-line> {{ comment.comment }} </h1>
-        <span md-line>{{ comment.rating }}</span>
+        <p md-line> {{ comment.comment }} </p>
+        <span md-line>{{ comment.rating }} Stars</span>
         <p md-line>
-          <span>-- {{ comment.author }} {{ comment.date | date }} </span>
+          <span>-- {{ comment.author }}</span> <span>{{ comment.date | date }} </span>
         </p>
       </md-list-item>
     </md-list>
