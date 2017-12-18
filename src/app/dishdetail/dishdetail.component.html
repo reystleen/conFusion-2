@@ -45,9 +45,43 @@
         </p>
       </md-list-item>
     </md-list>
+
+    <div flex="40">
+      <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+        <p *ngIf="commentForm.valid">{{ commentForm.value | json }} {{ commentForm.status | json }}</p>
+        <p>
+          <md-input-container class="full-width" dividerColor="{{(formErrors.firstname) ? 'warn' : 'primary'}}">
+            <input mdInput formControlName="author" placeholder="Your name" type="text" required>
+            <md-hint>
+              <span [hidden]="!(formErrors.author)">
+                {{formErrors.author}}
+              </span>
+            </md-hint>
+          </md-input-container>
+        </p>
+
+        <p>
+          <md-slider mdInput formControlName="rating" min="1" max="5" step="1" thumbLabel tickInterval="1"></md-slider>
+        </p>
+
+        <p>
+          <md-input-container class="full-width" dividerColor="{{(formErrors.telnum) ? 'warn' : 'primary'}}">
+            <textarea mdInput formControlName="comment" placeholder="Your Comment" rows=12 required></textarea>
+            <md-hint>
+              <span [hidden]="!(formErrors.comment)">
+                {{formErrors.comment}}
+              </span>
+            </md-hint>
+          </md-input-container>
+        </p>
+        <button type="submit" md-button class="background-primary text-floral-white" [disabled]="commentForm.invalid">Submit</button>
+      </form>
+    </div>
   </div>
   <div [hidden]="dish">
     <md-spinner></md-spinner> <h4>Loading . . . Please Wait</h4>
   </div>
+
+
 
 </div>
