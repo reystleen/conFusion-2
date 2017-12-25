@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { ProcessHttpmsgService } from './process-httpmsg.service';
+import { ProcessHttpmsgService } from '../services/process-httpmsg.service';
 
 describe('ProcessHttpmsgService', () => {
   beforeEach(() => {
