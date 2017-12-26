@@ -9,7 +9,7 @@
     <md-card-header>
       <div md-card-avatar></div>
       <md-card-title>
-        <h3>{{dish.name | uppercase}}</h3>
+        <h3>{{ dish.name | uppercase }}</h3>
       </md-card-title>
     </md-card-header>
     <img md-card-image src="{{BaseURL + dish.image}}" alt={{dish.name}}>
@@ -23,36 +23,40 @@
   </div>
   <div *ngIf="dishErrMess">
     <h2>Error</h2>
-    <h4>{{dishErrMess}}</h4>
+    <h4>{{ dishErrMess }}</h4>
   </div>
 
   <md-card *ngIf="promotion" fxFlex [@expand]>
     <md-card-header>
       <div md-card-avatar></div>
       <md-card-title>
-        <h3>{{promotion.name | uppercase}}</h3>
+        <h3>{{ promotion.name | uppercase }}</h3>
       </md-card-title>
     </md-card-header>
-    <img md-card-image src={{promotion.image}} alt={{promotion.name}}>
+    <img md-card-image src="{{BaseURL + promotion.image}}" alt={{promotion.name}}>
     <md-card-content>
-      <p>{{promotion.description}}
+      <p>{{ promotion.description }}
       </p>
     </md-card-content>
   </md-card>
   <div [hidden]="dish">
     <md-spinner></md-spinner> <h4>Loading . . . Please Wait</h4>
   </div>
+  <div *ngIf="promotionErrMess">
+    <h2>Error</h2>
+    <h4>{{ promotionErrMess }}</h4>
+  </div>
 
   <md-card *ngIf="leader" fxFlex [@expand]>
     <md-card-header>
       <div md-card-avatar></div>
       <md-card-title>
-        <h3>{{leader.name | uppercase}}</h3>
+        <h3>{{ leader.name | uppercase }}</h3>
       </md-card-title>
     </md-card-header>
     <img md-card-image src={{leader.image}} alt={{leader.name}}>
     <md-card-content>
-      <p>{{leader.description}}
+      <p>{{ leader.description }}
       </p>
     </md-card-content>
   </md-card>
